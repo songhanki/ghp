@@ -6,5 +6,18 @@
 		<typeAlias alias="egovMap" type="egovframework.rte.psl.dataaccess.util.EgovMap"/>
 		<typeAlias alias="searchVO" type="egovframework.example.sample.service.SampleDefaultVO"/>
 		<typeAlias alias="sampleVO" type="egovframework.example.sample.service.SampleVO"/>
+		<typeAlias alias="memberVO" type="ghp.service.MemberVO"/>
+		<typeAlias alias="evaluateVO" type="ghp.service.EvaluateVO"/>
+		<typeAlias alias="eventVO" type="ghp.service.EventVO"/>
+		<typeAlias alias="faqVO" type="ghp.service.FaqVO"/>
+		<typeAlias alias="noticeVO" type="ghp.service.NoticeVO"/>
+		<typeAlias alias="qnaVO" type="ghp.service.QnaVO"/>
+		<typeAlias alias="reserveVO" type="ghp.service.ReserveVO"/>
+		<typeAlias alias="roomVO" type="ghp.service.RoomVO"/>
+		<typeAlias alias="travelInfoCommentVO" type="ghp.service.TravelInfoCommentVO"/>
+		<typeAlias alias="travelInfoVO" type="ghp.service.TravelInfoVO"/>
+		<typeAlias alias="travelReviewCommentVO" type="ghp.service.TravelReviewCommentVO"/>
+		<typeAlias alias="travelReviewVO" type="ghp.service.TravelReviewVO"/>
+		
     </typeAliases>
 </configuration>

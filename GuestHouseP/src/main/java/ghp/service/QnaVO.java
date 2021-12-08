@@ -10,9 +10,10 @@ public class QnaVO {
 	private String qna_answer;
 	private String qna_qdate;
 	private String qna_adate;
-	private String faq_writer;
+	private String qna_writer;
 	private String qna_phone;
 	private String qna_category;
+	
 	public int getQna_seq() {
 		return qna_seq;
 	}
@@ -61,11 +62,11 @@ public class QnaVO {
 	public void setQna_adate(String qna_adate) {
 		this.qna_adate = qna_adate;
 	}
-	public String getFaq_writer() {
-		return faq_writer;
+	public String getQna_writer() {
+		return qna_writer;
 	}
-	public void setFaq_writer(String faq_writer) {
-		this.faq_writer = faq_writer;
+	public void setQna_writer(String qna_writer) {
+		this.qna_writer = qna_writer;
 	}
 	public String getQna_phone() {
 		return qna_phone;
