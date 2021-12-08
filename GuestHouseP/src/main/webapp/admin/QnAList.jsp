@@ -7,6 +7,56 @@
 <title>Insert title here</title>
 </head>
 <body>
-
+<h2>문의하기 관리</h2>
+<div>
+<select></select>
+<input type="text" />
+<input type="button" value="검색"/>
+</div>
+<div>
+	<table>
+		<thead>
+			<tr>
+				<th></th>
+				<th>문의 종류</th>
+				<th>문의자 명</th>
+				<th>연락처</th>
+				<th>문의 제목</th>
+				<th>문의 날짜</th>
+				<th>답변여부</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>1</td>
+				<td>hksong9276@gmail.com</td>
+				<td>2021-07-06</td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>2</td>
+				<td>hksong9276@gmail.com</td>
+				<td>2021-07-06</td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>3</td>
+				<td>hksong9276@gmail.com</td>
+				<td>2021-07-06</td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+			
+		</tbody>
+	</table>
+</div>
 </body>
 </html>
