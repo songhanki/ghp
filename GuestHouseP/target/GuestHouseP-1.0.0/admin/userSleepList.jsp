@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+    
 <!DOCTYPE html>
 <html>
 <head>
@@ -24,21 +26,14 @@
 			</tr>
 		</thead>
 		<tbody>
-			<tr>
-				<td>1</td>
-				<td>hksong9276@gmail.com</td>
-				<td>2021-07-06</td>
-			</tr>
-			<tr>
-				<td>2</td>
-				<td>hksong9276@gmail.com</td>
-				<td>2021-07-06</td>
-			</tr>
-			<tr>
-				<td>3</td>
-				<td>hksong9276@gmail.com</td>
-				<td>2021-07-06</td>
-			</tr>
+  			<c:forEach var="result" items="${result}" varStatus="status">
+	  			<tr>
+					<td>${status.index+1 }</td>
+					<td><c:out value="${result.mb_email}"/></td>
+					<td><c:out value="${result.mb_last}"/></td>
+				</tr>
+  			</c:forEach>
+
 			
 		</tbody>
 	</table>

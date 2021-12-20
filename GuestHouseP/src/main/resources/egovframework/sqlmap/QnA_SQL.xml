@@ -5,7 +5,7 @@
 	<typeAlias  alias="qnaVO"    type="ghp.service.QnaVO"/>
 
 	<select id="qnaDAO.selectQnaList" resultClass="qnaVO">
-		select 
+		select		 
 			*
 		from
 		qna_list

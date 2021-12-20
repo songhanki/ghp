@@ -81,5 +81,7 @@ public class QnaVO {
 		this.qna_category = qna_category;
 	}
 	
+
+	
 	
 }

@@ -11,9 +11,10 @@ import org.springframework.stereotype.Service;
 import egovframework.example.sample.service.impl.EgovSampleServiceImpl;
 import egovframework.rte.fdl.cmmn.EgovAbstractServiceImpl;
 import ghp.service.RoomService;
+import ghp.service.RoomVO;
 
 @Service("roomService")
-public class RoomServiceImpl extends EgovAbstractServiceImpl implements RoomService{
+public class RoomServiceImpl implements RoomService{
 	private static final Logger LOGGER = LoggerFactory.getLogger(EgovSampleServiceImpl.class);
 	
 	
@@ -21,7 +22,22 @@ public class RoomServiceImpl extends EgovAbstractServiceImpl implements RoomServ
 	private RoomDAO roomDAO;
 	
 	@Override
-	public List<?> selectRoomList() throws Exception {
-		return roomDAO.selectRoomList();
+	public List<?> selectRoomNameList() throws Exception {
+		return roomDAO.selectRoomNameList();
+	}
+	
+	@Override
+	public List<?> selectRoomList(RoomVO vo) throws Exception{
+		return roomDAO.selectRoomList(vo);
+	}
+	
+	@Override
+	public List<?> selectRoomPriceList(RoomVO vo){
+		return roomDAO.selectRoomPriceList(vo);
+	}
+	
+	@Override
+	public List<?> selectRoomEtcList(RoomVO vo){
+		return roomDAO.selectRoomEtcList(vo);
 	}
 }

@@ -1,15 +1,48 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd" >
 
-<sqlMap namespace="memberspace">
+<sqlMap namespace="room_space">
+	<typeAlias  alias="egovMap"  type="egovframework.rte.psl.dataaccess.util.EgovMap"/>
 	<typeAlias  alias="roomVO"    type="ghp.service.RoomVO"/>
 
-	<select id="roomDAO.selectRoomList" resultClass="roomVO">
+	<select id="roomDAO.selectRoomNameList" resultClass="egovMap">
 		select 
-			*
+			rm_name
 		from
 		room_list
-		
+		group by rm_name
+	</select>
+
+
+	<select id="roomDAO.selectRoomList" resultClass="egovMap" >
+		select 
+			rm_room 
+		from 
+			room_list 
+		where 			
+			rm_name=#rm_name#
+
+		order by rm_room asc
+ 
+	</select>
+	<select id="roomDAO.selectRoomPriceList" resultClass="egovMap">
+		select 
+			min(rm_price) as min_price,
+			 max(rm_price) as max_price
+		from 
+			room_list 
+		where 
+			rm_name=#rm_name#
+	</select>
+	
+	<select id="roomDAO.selectRoomEtcList" resultClass="egovMap">
+		select 
+			rm_img, rm_loc, rm_phone
+		from 
+			room_list 
+		where 
+			rm_name=#rm_name#
+			and rownum=1
 	</select>
 
 </sqlMap>
