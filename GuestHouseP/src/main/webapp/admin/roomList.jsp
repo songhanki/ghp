@@ -34,7 +34,7 @@
 		<tbody>
 		
   			<c:forEach var="result" items="${result}" varStatus="status">
-			<tr>
+			<tr id="${result.rmName}">
 				<td>${status.index+1 }</td>
 				<td>${result.rmName}</td>
 				<td>

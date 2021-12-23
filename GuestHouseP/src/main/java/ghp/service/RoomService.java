@@ -10,5 +10,9 @@ public interface RoomService {
 	List<?> selectRoomPriceList(RoomVO vo) throws Exception;
 	
 	List<?> selectRoomEtcList(RoomVO vo) throws Exception;
-
+	
+	List<?> selectRoomDetailList(RoomVO vo) throws Exception;
+	
+	List<?> selectRoomRPPList(RoomVO vo) throws Exception;
+	
 }

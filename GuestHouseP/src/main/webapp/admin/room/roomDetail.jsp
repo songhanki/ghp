@@ -11,17 +11,18 @@
 <div>
 	<table>
 		<tbody>
+		<c:forEach var="result" items="${result}" varStatus="status">
 			<tr>
 				<th>숙소명</th>
-				<td>1234</td>
+				<td>${result.rmName }</td>
 			</tr>
 			<tr>
 				<th>숙소이미지</th>
-				<td></td>
+				<td>${result.rmImg } (이미지경로)</td>
 			</tr>
 			<tr>
 				<th>숙소위치</th>
-				<td></td>
+				<td>${result.rmLoc }</td>
 			</tr>
 			<tr>
 				<th>숙소별 가격</th>
@@ -36,26 +37,23 @@
 							</tr>
 						</thead>
 						<tbody>
+						<c:forEach var="rm_rpp" items="${rm_rpp}" varStatus="status1">
 							<tr>
-								<td>101</td>
-								<td>2인실</td>
-								<td>30,000</td>
+								<td>${rm_rpp.rmRoom }</td>
+								<td>${rm_rpp.rmRerson }</td>
+								<td>${rm_rpp.rmPrice }</td>
 								<td></td>
 							</tr>
-							<tr>
-								<td>102</td>
-								<td>3인실</td>
-								<td>50,000</td>
-								<td></td>
-							</tr>
+						</c:forEach>
 						</tbody>
 					</table>
 				</td>
 			</tr>
 			<tr>
 				<th>숙소설명</th>
-				<td></td>
+				<td>${result.rmComment }</td>
 			</tr>
+		</c:forEach>
 		</tbody>
 	</table>
 </div>

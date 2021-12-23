@@ -26,5 +26,16 @@ public class RoomDAO  extends EgovAbstractDAO{
 	
 	public List<?> selectRoomEtcList(RoomVO vo){
 		return list("roomDAO.selectRoomEtcList",vo);
+	}	
+	
+	public List<?> selectRoomDetailList(RoomVO vo){
+		return list("roomDAO.selectRoomDetailList",vo);
 	}
+	
+	public List<?> selectRoomRPPList(RoomVO vo){
+		return list("roomDAO.selectRoomRPPList",vo);
+	}
+	
+	
+	
 }

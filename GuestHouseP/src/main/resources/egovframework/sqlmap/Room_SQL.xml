@@ -44,5 +44,27 @@
 			rm_name=#rm_name#
 			and rownum=1
 	</select>
+	
+	
+	<select id="roomDAO.selectRoomDetailList" resultClass="egovMap">
+		select 
+			rm_name, rm_img, rm_loc, rm_phone,rm_comment
+		from 
+			room_list 
+		where 
+			rm_name=#rm_name#
+		and rownum=1
+	</select>
+		
+	<select id="roomDAO.selectRoomRPPList" resultClass="egovMap">
+		select 
+			rm_room, rm_person, rm_price
+		from 
+			room_list 
+		where 			
+			rm_name=#rm_name#
+
+		order by rm_room asc
+	</select>
 
 </sqlMap>

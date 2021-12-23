@@ -40,4 +40,15 @@ public class RoomServiceImpl implements RoomService{
 	public List<?> selectRoomEtcList(RoomVO vo){
 		return roomDAO.selectRoomEtcList(vo);
 	}
+	
+	@Override
+	public List<?> selectRoomDetailList(RoomVO vo){
+		return roomDAO.selectRoomDetailList(vo);
+	}
+	
+	@Override
+	public List<?> selectRoomRPPList(RoomVO vo){
+		return roomDAO.selectRoomRPPList(vo);
+	}
+	
 }
