@@ -1,18 +1,27 @@
 package ghp.web;
 
 import java.util.List;
+import java.util.Map;
 
 import javax.annotation.Resource;
+import javax.json.JsonObject;
 
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import ghp.service.RoomService;
 import ghp.service.RoomVO;
 
 @Controller
-@RequestMapping(value="room/")
+@RequestMapping(value="/room/")
 public class RoomController {
 	
 	@Resource(name="roomService")
@@ -24,13 +33,82 @@ public class RoomController {
 		System.out.println("vo : "+vo);
 		model.addAttribute("result",vo);
 	
-		return "admin/roomList";
+		return "admin/room/roomCreate";
+	}
+	
+	@RequestMapping("InsertRoom.do")
+	@ResponseBody
+	public String insertRoom(String rm_rpp, String rm_array ,RoomVO vo) throws Exception {
+		rm_rpp = rm_rpp.replaceAll("&quot;", "\"");
+		rm_array = rm_array.replaceAll("&quot;", "\"");
+		//System.out.println("rm_rpp"+rm_rpp); 
+		//{"rm_room":"101","rm_person":"1","rm_price":"10000"},{"rm_room":"102","rm_person":"4","rm_price":"15000"}
+		//System.out.println("rm_array"+rm_array); 
+		//{"rm_name":"테스트","rm_loc":"서울","rm_comment":"테스트"}
+		String msg = "ok";
+
+	
+		JSONParser pars_rpp = new JSONParser();
+		JSONParser pars_array = new JSONParser();
+		Object obj_rpp = pars_rpp.parse(rm_rpp);
+		Object obj_array = pars_array.parse(rm_array);  
+		JSONArray json_arr_rpp = (JSONArray)obj_rpp;
+		JSONArray json_arr_array = (JSONArray)obj_array;
+		for(int i=0;i<json_arr_array.size();i++) {
+			for(int j=0;j<json_arr_rpp.size();j++){
+				JSONObject json_obj_rpp = (JSONObject)json_arr_rpp.get(j);
+				JSONObject json_obj_array = (JSONObject)json_arr_array.get(i);
+				
+				String rm_name = (String) json_obj_array.get("rm_name");
+				String rm_loc = (String) json_obj_array.get("rm_loc");
+				String rm_comment = (String) json_obj_array.get("rm_comment");
+				//String rm_img = (String) json_obj_array.get("rm_img");
+				String rm_img = "/src/img/test.jpg";
+				String rm_phone = (String) json_obj_array.get("rm_phone");
+
+				String rm_room = (String) json_obj_rpp.get("rm_room");
+				String rm_person = (String) json_obj_rpp.get("rm_person");
+				String rm_price = (String) json_obj_rpp.get("rm_price");
+				
+
+				System.out.println("rm_name : "+rm_name);
+				System.out.println("rm_loc : "+rm_loc);
+				System.out.println("rm_comment : "+rm_comment);
+				System.out.println("rm_room : "+rm_room);
+				System.out.println("rm_person : "+rm_person);
+				System.out.println("rm_price : "+rm_price);
+				System.out.println("rm_phone : "+rm_phone);
+				System.out.println("***********************");
+
+				vo.setRm_name(rm_name);
+				vo.setRm_loc(rm_loc);
+				vo.setRm_commnet(rm_comment);
+				vo.setRm_room(rm_room);
+				vo.setRm_person(rm_person);
+				vo.setRm_price(rm_price);
+				vo.setRm_img(rm_img);
+				vo.setRm_phone(rm_phone);
+				
+				String result = roomService.insertRoomList(vo); // 추후에 Map사용후 다중 insert 구현
+				if( result != null ) msg = "save_fail";
+				
+				
+			}
+		}
+		
+
+   
+        
+		
+
+		//return "admin/room/roomCreate";
+		return msg;
 	}
 	
 	@RequestMapping(value="DetailRoom.do")
-	public String detailRoom(RoomVO vo, Model model ) throws Exception {
-	
-		vo.setRm_name("테스트01"); //임시 테스트용데이터(나중에 tr클릭시 data로 받을 예정)
+	public String detailRoom(String rm_name, RoomVO vo, Model model ) throws Exception {
+		System.out.println("rm_name : "+rm_name);		
+		vo.setRm_name(rm_name); 
 		
 		List<?> rm_rpp = roomService.selectRoomRPPList(vo); // 숙소에 대한 호실,인원수,가격 정보조회
 		List<?> result = roomService.selectRoomDetailList(vo);

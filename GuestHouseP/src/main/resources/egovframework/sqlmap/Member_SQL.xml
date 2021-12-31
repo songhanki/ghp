@@ -20,7 +20,8 @@
 			mb_pfimg
 		from 
 			member_list
-		
+		where
+			mb_sleep = 'Y'
 	</select>
 	
 </sqlMap>

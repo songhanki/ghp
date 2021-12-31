@@ -7,10 +7,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- 위 3개의 메타 태그는 *반드시* head 태그의 처음에 와야합니다; 어떤 다른 콘텐츠들은 반드시 이 태그들 *다음에* 와야 합니다 -->
-    <title>부트스트랩 101 템플릿</title>
+    <title>어드민 메인 페이지</title>
 
     <!-- 부트스트랩 -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="admin/bootstrap-4.6.1/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- IE8 에서 HTML5 요소와 미디어 쿼리를 위한 HTML5 shim 와 Respond.js -->
     <!-- WARNING: Respond.js 는 당신이 file:// 을 통해 페이지를 볼 때는 동작하지 않습니다. -->
@@ -24,19 +24,37 @@
 
     <div class="container">
 
-      <div class="masthead">
-        <h3 class="text-muted">Project name</h3>
-        <nav>
-          <ul class="nav nav-justified">
-            <li class="active"><a href="#">Home</a></li>
-            <li><a href="#">Projects</a></li>
-            <li><a href="#">Services</a></li>
-            <li><a href="#">Downloads</a></li>
-            <li><a href="#">About</a></li>
-            <li><a href="#">Contact</a></li>
-          </ul>
-        </nav>
-      </div>
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">Project name</a>
+		  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+		    <span class="navbar-toggler-icon"></span>
+		  </button>
+		  <div class="collapse navbar-collapse" id="navbarNav">
+		    <ul class="navbar-nav">
+		      <li class="nav-item active">
+		        <a class="nav-link" href="UserSleepList.do">회원휴면관리 </a>
+		      </li>
+		      <li class="nav-item active">
+		        <a class="nav-link" href="RoomList.do">숙소관리</a>
+		      </li>
+		      <li class="nav-item active">
+		        <a class="nav-link" href="#">예약관리</a>
+		      </li>		      
+		      <li class="nav-item active">
+		        <a class="nav-link" href="#">QnA답변</a>
+		      </li>
+		      <li class="nav-item active">
+		        <a class="nav-link" href="#">이벤트관리</a>
+		      </li>
+		      <li class="nav-item active">
+		        <a class="nav-link" href="#">회원탈퇴관리</a>
+		      </li>
+    		  <li class="nav-item">
+		        <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">통계</a>
+		      </li>
+		    </ul>
+		  </div>
+      </nav>
 
       <!-- Jumbotron -->
       <div class="jumbotron">
@@ -74,11 +92,11 @@
 
 
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <script src="js/ie10-viewport-bug-workaround.js"></script>
+    <script src="admin/bootstrap-4.6.1/js/ie10-viewport-bug-workaround.js"></script>
 
     <!-- jQuery (부트스트랩의 자바스크립트 플러그인을 위해 필요합니다) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
     <!-- 모든 컴파일된 플러그인을 포함합니다 (아래), 원하지 않는다면 필요한 각각의 파일을 포함하세요 -->
-    <script src="js/bootstrap.min.js"></script>
+    <script src="admin/bootstrap-4.6.1/js/bootstrap.min.js"></script>
   </body>
 </html>

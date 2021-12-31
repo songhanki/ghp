@@ -15,4 +15,6 @@ public interface RoomService {
 	
 	List<?> selectRoomRPPList(RoomVO vo) throws Exception;
 	
+	String insertRoomList(RoomVO vo) throws Exception;
+	
 }

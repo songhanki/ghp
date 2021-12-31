@@ -36,6 +36,9 @@ public class RoomDAO  extends EgovAbstractDAO{
 		return list("roomDAO.selectRoomRPPList",vo);
 	}
 	
+	public String insertRoomList(RoomVO vo){
+		return (String) insert("roomDAO.insertRoomList",vo);
+	}
 	
 	
 }

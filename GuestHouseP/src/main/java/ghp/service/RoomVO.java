@@ -9,7 +9,9 @@ public class RoomVO {
 	private String rm_person;
 	private String rm_price;
 	private String rm_comment;
+	private String rm_phone;
 	
+
 	public int getRm_seq() {
 		return rm_seq;
 	}
@@ -58,7 +60,12 @@ public class RoomVO {
 	public void setRm_commnet(String rm_comment) {
 		this.rm_comment = rm_comment;
 	}
-	
+	public String getRm_phone() {
+		return rm_phone;
+	}
+	public void setRm_phone(String rm_phone) {
+		this.rm_phone = rm_phone;
+	}
 	
 }
 

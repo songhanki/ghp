@@ -50,7 +50,7 @@ public class AdminController {
 	/*페이지 이동 컨트롤러*/
 	
 	//휴면계정 관리
-	@RequestMapping(value="UserSleepList.do")
+	@RequestMapping(value="/UserSleepList.do")
 	public String selectSleepUserList( Model model ) throws Exception {
 		List<?> vo = memberService.selectSleepMemberList();
 		System.out.println("vo : "+vo);
@@ -61,7 +61,7 @@ public class AdminController {
 	}
 	
 	//예약관리
-	@RequestMapping(value="ReserveList.do")
+	@RequestMapping(value="/ReserveList.do")
 	public String selectReserveList( Model model ) throws Exception {
 		List<?> vo = reserveService.selectReserveList();
 		System.out.println("vo : "+vo);
@@ -71,7 +71,7 @@ public class AdminController {
 	}
 	
 	//숙소관리
-	@RequestMapping(value="RoomList.do")
+	@RequestMapping(value="/RoomList.do")
 	public String selectRoomList(RoomVO vo, Model model ) throws Exception {
 		List<EgovMap> result = new ArrayList();
 		EgovMap room_result = new EgovMap(); 
@@ -121,7 +121,7 @@ public class AdminController {
 	}
 	
 	//공지사항
-	@RequestMapping(value="NoticeList.do")
+	@RequestMapping(value="/NoticeList.do")
 	public String selectNoticeList( Model model ) throws Exception {
 		List<?> vo = noticeService.selectNoticeList();
 		System.out.println("vo : "+vo);
@@ -131,7 +131,7 @@ public class AdminController {
 	}
 	
 	//자주묻는질문(FAQ)
-	@RequestMapping(value="FAQList.do")
+	@RequestMapping(value="/FAQList.do")
 	public String selectFAQList( Model model ) throws Exception {
 		List<?> vo = faqService.selectFaqList();
 		System.out.println("vo : "+vo);
@@ -141,7 +141,7 @@ public class AdminController {
 	}
 	
 	//문의하기
-	@RequestMapping(value="QnAList.do")
+	@RequestMapping(value="/QnAList.do")
 	public String selectQnAList( Model model ) throws Exception {
 		List<?> vo = qnaService.selectQnaList();
 		System.out.println("vo : "+vo);
@@ -150,7 +150,7 @@ public class AdminController {
 		return "admin/QnAList";
 	}
 	//이벤트
-	@RequestMapping(value="EventList.do")
+	@RequestMapping(value="/EventList.do")
 	public String selectEventList( Model model ) throws Exception {
 		List<?> vo = eventService.selectEventList();
 		System.out.println("vo : "+vo);

@@ -51,4 +51,8 @@ public class RoomServiceImpl implements RoomService{
 		return roomDAO.selectRoomRPPList(vo);
 	}
 	
+	@Override
+	public String insertRoomList(RoomVO vo) {
+		return roomDAO.insertRoomList(vo);
+	}
 }
