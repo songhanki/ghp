@@ -15,50 +15,29 @@
 <script>
 
 </script>
-<title>Insert title here</title>
+<title>숙소관리</title>
 </head>
 <body>
 <div class="container">
-      <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="#">Project name</a>
-		  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-		    <span class="navbar-toggler-icon"></span>
-		  </button>
-		  <div class="collapse navbar-collapse" id="navbarNav">
-		    <ul class="navbar-nav">
-		      <li class="nav-item active">
-		        <a class="nav-link" href="/UserSleepList.do">회원휴면관리 </a>
-		      </li>
-		      <li class="nav-item active">
-		        <a class="nav-link" href="/RoomList.do">숙소관리</a>
-		      </li>
-		      <li class="nav-item active">
-		        <a class="nav-link" href="#">예약관리</a>
-		      </li>		      
-		      <li class="nav-item active">
-		        <a class="nav-link" href="#">QnA답변</a>
-		      </li>
-		      <li class="nav-item active">
-		        <a class="nav-link" href="#">이벤트관리</a>
-		      </li>
-		      <li class="nav-item active">
-		        <a class="nav-link" href="#">회원탈퇴관리</a>
-		      </li>
-    		  <li class="nav-item">
-		        <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">통계</a>
-		      </li>
-		    </ul>
-		  </div>
-      </nav>
-      <div>
-		<select></select>
-		<input type="text" />
-		<input type="button" value="검색"/>
-	</div>
 	<div>
-	
-	<button type="button" id="btn_create_room" class="btn btn-primary" onclick="go_create();">등록하기</button>
-	
+		<%@ include file="./common/adm_nav.jsp" %>
+	</div>
+  	<div style="margin-bottom:10px;float:left; text-align:left; width:500px;">
+  		<form name="frm" method="post" action=".do">
+  		<select name="s_field" >
+  			<option value="rm_name" <c:if test="${s_field=='rm_name'}">selected</c:if> >숙소명</option>
+  			<option value="rm_loc" <c:if test="${s_field=='rm_loc'}">selected</c:if> >숙소위치</option>
+  			<option value="rm_phone" <c:if test="${s_field=='rm_phone'}">selected</c:if> >연락처</option>
+  		</select>
+  		<input type="text" name="s_text" value="${s_text}">
+  		<button type="submit" class="btn btn-primary">검색</button>
+  		
+  		</form>
+  	</div>
+	<div>
+		<div style="margin-bottom:10px;float:right; text-align:right; width:500px;">
+			<button type="button" id="btn_create_room" class="btn btn-primary" onclick="go_create();">등록하기</button>
+		</div>
 	</div>
 	<div>
 		<table class="table table-hover">
@@ -94,6 +73,18 @@
 				
 			</tbody>
 		</table>
+	  	<div style="width:700px;margin-left:10px; margin-top:10px; text-align:center;">
+	  			<!-- 
+	  			<c:forEach var="i" begin="1" end="${vo.total_page }">
+	  				<a href="anboardList.do?page_no=${i}">${i}</a> 
+	  			</c:forEach>
+	  			 -->
+	  	</div>
+	  	<div style="width:700px;
+	  				margin-left:10px; 
+	  				margin-top:10px; 
+	  				text-align:left;">
+	  	</div>
 	</div>
 </div>
 </body>

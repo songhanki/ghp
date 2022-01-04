@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -30,30 +32,22 @@
 			</tr>
 		</thead>
 		<tbody>
-			<tr>
-				<td>1</td>
-				<td>hksong9276@gmail.com</td>
-				<td>2021-07-06</td>
-				<td></td>
-				<td></td>
-				<td></td>
+		
+  			<c:forEach var="result" items="${result}" varStatus="status">
+			<tr id="${result.rmName}">
+				<td>${status.index+1 }</td>
+				<td>${result.rmName}</td>
+				<td>
+					<c:forEach var="rmRoom" items="${result.rmRoom}" varStatus="status1">
+						${rmRoom.rmRoom}
+					</c:forEach>
+				</td>
+				<td>${result.rmLoc}</td>
+				<td>${result.rmPhone}</td>
+				<td>${result.minPrice} ~ ${result.maxPrice}</td>
 			</tr>
-			<tr>
-				<td>2</td>
-				<td>hksong9276@gmail.com</td>
-				<td>2021-07-06</td>
-				<td></td>
-				<td></td>
-				<td></td>
-			</tr>
-			<tr>
-				<td>3</td>
-				<td>hksong9276@gmail.com</td>
-				<td>2021-07-06</td>
-				<td></td>
-				<td></td>
-				<td></td>
-			</tr>
+  			</c:forEach>
+
 			
 		</tbody>
 	</table>
