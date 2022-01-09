@@ -9,7 +9,7 @@
 <head>
 <meta charset="UTF-8">
 <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
-<script type="text/javascript" src="../admin/js/roomDetail.js" ></script>
+<script type="text/javascript" src="../admin/js/roomCommon.js" ></script>
 <link href="../admin/bootstrap-4.6.1/css/bootstrap.min.css" rel="stylesheet">
 <title>숙소상세보기</title>
 </head>
@@ -63,7 +63,7 @@
 		</tbody>
 	</table>
 	<c:forEach var="result" items="${result}" varStatus="status">
-	<button type="button" class="btn btn-primary" onclick="do_update('${result.rmName }')">수정</button>
+	<button type="button" class="btn btn-primary" onclick="go_update('${result.rmName }')">수정</button>
 	<button type="button" class="btn btn-danger" onclick="do_delete('${result.rmName }')">삭제</button>
 	<button type="button" class="btn btn-secondary" onclick="go_list()">목록으로</button>
 	</c:forEach>

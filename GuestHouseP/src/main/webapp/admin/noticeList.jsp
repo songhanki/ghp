@@ -10,7 +10,7 @@
 <head>
 <meta charset="UTF-8">
 <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
-<script type="text/javascript" src="./admin/js/noticeList.js" ></script>
+<script type="text/javascript" src="./admin/js/noticeCommon.js" ></script>
 <link href="admin/bootstrap-4.6.1/css/bootstrap.min.css" rel="stylesheet">
 <script>
 
@@ -25,9 +25,7 @@
   	<div style="margin-bottom:10px;float:left; text-align:left; width:500px;">
   		<form name="frm" method="post" action=".do">
   		<select name="s_field" >
-  			<option value="rm_name" <c:if test="${s_field=='rm_name'}">selected</c:if> >숙소명</option>
-  			<option value="rm_loc" <c:if test="${s_field=='rm_loc'}">selected</c:if> >숙소위치</option>
-  			<option value="rm_phone" <c:if test="${s_field=='rm_phone'}">selected</c:if> >연락처</option>
+  			<option value="nc_title" <c:if test="${s_field=='nc_title'}">selected</c:if> >제목</option>
   		</select>
   		<input type="text" name="s_text" value="${s_text}">
   		<button type="submit" class="btn btn-primary">검색</button>
@@ -50,25 +48,15 @@
 				</tr>
 			</thead>
 			<tbody>
-				<tr>
-					<td>1</td>
-					<td>hksong9276@gmail.com</td>
-					<td>2021-07-06</td>
-					<td></td>
+	  			<c:forEach var="result" items="${result}" varStatus="status">
+				<tr onClick="location.href='notice/DetailNotice.do?nc_seq=${result.nc_seq}'"> 
+					<th scope="row">${status.index+1 }</th>
+					<td>${result.nc_title }</td>
+					<td>${result.nc_wdate }</td>
+					<td>${result.nc_view }</td>
 				</tr>
-				<tr>
-					<td>2</td>
-					<td>hksong9276@gmail.com</td>
-					<td>2021-07-06</td>
-					<td></td>
-				</tr>
-				<tr>
-					<td>3</td>
-					<td>hksong9276@gmail.com</td>
-					<td>2021-07-06</td>
-					<td></td>
-				</tr>
-				
+
+				</c:forEach>
 			</tbody>
 		</table>
 	</div>

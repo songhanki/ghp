@@ -40,5 +40,7 @@ public class RoomDAO  extends EgovAbstractDAO{
 		return (String) insert("roomDAO.insertRoomList",vo);
 	}
 	
-	
+	public int deleteRoomNameList(RoomVO vo){
+		return delete("roomDAO.deleteRoomNameList",vo);
+	}
 }

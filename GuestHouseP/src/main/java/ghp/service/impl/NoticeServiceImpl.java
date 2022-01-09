@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 import egovframework.example.sample.service.impl.EgovSampleServiceImpl;
 import egovframework.rte.fdl.cmmn.EgovAbstractServiceImpl;
 import ghp.service.NoticeService;
+import ghp.service.NoticeVO;
 import ghp.service.RoomService;
 
 @Service("noticeService")
@@ -25,4 +26,26 @@ public class NoticeServiceImpl extends EgovAbstractServiceImpl implements Notice
 	public List<?> selectNoticeList() throws Exception {
 		return noticeDAO.selectNoticeList();
 	}
+	
+	@Override
+	public NoticeVO selectNoticeDetailList(NoticeVO vo) throws Exception {
+		return noticeDAO.selectNoticeDetailList(vo);
+	}
+	
+	@Override
+	public String insertNoticeList(NoticeVO vo) throws Exception {
+		return noticeDAO.insertNoticeList(vo);
+	}
+	
+	@Override
+	public int updateNoticeList(NoticeVO vo) throws Exception {
+		return noticeDAO.updateNoticeList(vo);
+	}	
+	
+	@Override
+	public int deleteNoticeList(NoticeVO vo) throws Exception {
+		return noticeDAO.deleteNoticeList(vo);
+	}
+	
+	
 }

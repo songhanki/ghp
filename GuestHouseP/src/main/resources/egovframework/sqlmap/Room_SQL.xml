@@ -98,7 +98,9 @@
 		$ -> 로그 콘솔출력할때 내부 데이터 그대로 출력	'$변수명$'
 	 -->
 	
-	
+	<delete id="roomDAO.deleteRoomNameList">
+		DELETE FROM room_list WHERE rm_name=#rm_name#
+	</delete>
 	
 	
 </sqlMap>

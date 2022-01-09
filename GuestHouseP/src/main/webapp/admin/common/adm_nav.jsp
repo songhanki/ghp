@@ -15,15 +15,18 @@
 		      </li>
 		      <li class="nav-item active">
 		        <a class="nav-link" href="/ReserveList.do">예약관리</a>
-		      </li>		      
-		      <li class="nav-item active">
-		        <a class="nav-link" href="#">QnA답변</a>
 		      </li>
 		      <li class="nav-item active">
-		        <a class="nav-link" href="#">이벤트관리</a>
+		        <a class="nav-link" href="/NoticeList.do">공지사항관리</a>
 		      </li>
 		      <li class="nav-item active">
-		        <a class="nav-link" href="#">회원탈퇴관리</a>
+		        <a class="nav-link" href="/FAQList.do">FAQ관리</a>
+		      </li>
+		      <li class="nav-item active">
+		        <a class="nav-link" href="/QnAList.do">QnA답변</a>
+		      </li>
+		      <li class="nav-item active">
+		        <a class="nav-link" href="/EventList.do">이벤트관리</a>
 		      </li>
     		  <li class="nav-item">
 		        <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">통계</a>

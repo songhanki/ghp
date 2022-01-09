@@ -55,4 +55,9 @@ public class RoomServiceImpl implements RoomService{
 	public String insertRoomList(RoomVO vo) {
 		return roomDAO.insertRoomList(vo);
 	}
+	
+	@Override
+	public int deleteRoomNameList(RoomVO vo) {
+		return roomDAO.deleteRoomNameList(vo);
+	}
 }

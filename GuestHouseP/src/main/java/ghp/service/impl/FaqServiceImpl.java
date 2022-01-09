@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 import egovframework.example.sample.service.impl.EgovSampleServiceImpl;
 import egovframework.rte.fdl.cmmn.EgovAbstractServiceImpl;
 import ghp.service.FaqService;
+import ghp.service.FaqVO;
 import ghp.service.RoomService;
 
 @Service("faqService")
@@ -25,4 +26,25 @@ public class FaqServiceImpl extends EgovAbstractServiceImpl implements FaqServic
 	public List<?> selectFaqList() throws Exception {
 		return faqDAO.selectFaqList();
 	}
+	
+	@Override
+	public FaqVO selectFAQDetailList(FaqVO vo) throws Exception{
+		return faqDAO.selectFAQDetailList(vo);
+	}
+	
+	@Override
+	public String insertFAQList(FaqVO vo) throws Exception{
+		return faqDAO.insertFAQList(vo);
+	}
+	
+	@Override
+	public int updateFAQList(FaqVO vo) throws Exception{
+		return faqDAO.updateFAQList(vo);
+	}
+	
+	@Override
+	public int deleteFAQList(FaqVO vo) throws Exception{
+		return faqDAO.deleteFAQList(vo);
+	}
+	
 }

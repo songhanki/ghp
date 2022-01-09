@@ -17,4 +17,6 @@ public interface RoomService {
 	
 	String insertRoomList(RoomVO vo) throws Exception;
 	
+	int deleteRoomNameList(RoomVO vo) throws Exception;
+	
 }

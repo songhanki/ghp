@@ -12,4 +12,54 @@
 		
 	</select>
 
+	<select id="faqDAO.selectFAQDetailList" resultClass="faqVO">
+		select 
+			faq_seq,
+			faq_title,
+			faq_comment,
+			faq_wdate,
+			faq_category,
+			faq_writer
+		from
+			faq_list
+		where
+			faq_seq=#faq_seq#
+		order by faq_seq asc
+	</select>
+	
+	<insert id="faqDAO.insertFAQList">
+		INSERT INTO faq_list(
+			faq_seq,
+			faq_title,
+			faq_comment,
+			faq_category,
+			faq_writer
+		) VALUES (
+			FAQ_LIST_SEQ.nextval,
+			#faq_title#,
+			#faq_comment#,
+			#faq_category#,
+			#faq_writer#
+		)
+
+	</insert>
+	
+	<update id="faqDAO.updateFAQList">
+		UPDATE  faq_list
+		SET
+			faq_title = #faq_title#,
+			faq_comment = #faq_comment#,
+			faq_category = #faq_category#
+		WHERE
+			faq_seq=#faq_seq#
+	</update>
+	
+	<delete id="faqDAO.deleteFAQList">
+		DELETE FROM 
+			faq_list
+		WHERE
+			faq_seq=#faq_seq#
+	</delete>
+	
+	
 </sqlMap>

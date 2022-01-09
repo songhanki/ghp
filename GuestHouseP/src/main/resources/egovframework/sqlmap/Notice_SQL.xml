@@ -6,10 +6,61 @@
 
 	<select id="noticeDAO.selectNoticeList" resultClass="noticeVO">
 		select 
-			*
+			nc_seq,
+			nc_title,
+			nc_comment,
+			nc_wdate,
+			nc_view,
+			nc_writer
 		from
-		notice_list
+			notice_list
+			order by nc_wdate desc
 		
 	</select>
 
+	<select id="noticeDAO.selectNoticeDetailList" resultClass="noticeVO">
+		select 
+			nc_seq,
+			nc_title,
+			nc_comment,
+			nc_view,
+			nc_writer
+		from
+			notice_list
+		where
+			nc_seq=#nc_seq#
+		order by nc_seq asc
+	</select>
+
+	<insert id="noticeDAO.insertNoticeList">
+		INSERT INTO notice_list(
+			nc_seq,
+			nc_title,
+			nc_comment,
+			nc_view,
+			nc_writer
+				) VALUES (
+			NOTICE_LIST_SEQ.nextval,
+			#nc_title#,
+			#nc_comment#,
+			0,
+			#nc_writer#
+		)
+	</insert>
+	
+	<update id="noticeDAO.updateNoticeList">
+		UPDATE  notice_list
+		SET
+			nc_title = #nc_title#,
+			nc_comment = #nc_comment#
+		WHERE
+			nc_seq=#nc_seq#
+	</update>
+	
+	<delete id="noticeDAO.deleteNoticeList">
+		DELETE FROM 
+			notice_list
+		WHERE
+			nc_seq=#nc_seq#
+	</delete>
 </sqlMap>

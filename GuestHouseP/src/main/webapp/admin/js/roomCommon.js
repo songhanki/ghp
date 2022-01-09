@@ -1,6 +1,55 @@
 /**
  * 
  */
+function go_create(){
+	location="/room/CreateRoom.do";
+}
+function go_update(rm_name){
+	location="/room/UpdateRoom.do?rm_name="+rm_name;
+	/*
+		$.ajax({
+		type : "post",
+		url  : "/room/UpdateRoom.do",
+		data : {"rm_name":rm_name},
+		datatype : "text",  // 성공여부 (ok)
+        async: false,
+		success : function(data) {
+			console.log(data);
+		},	
+		error : function() {
+			alert("오류발생");
+		}
+	});
+	console.log(rm_name);
+	*/
+}
+
+function do_delete(rm_name){
+	//location="DeleteRoom.do";
+	if( confirm("정말 삭제 하시겠습니까?") ) {
+		$.ajax({
+		type : "post",
+		url  : "/room/DeleteRoom.do",
+		data : 	"rm_name="+ rm_name,
+		datatype : "text",  // 성공여부 (ok)
+		success : function(data) {
+			if(data>0){
+				alert("삭제완료");
+				location="/RoomList.do";
+			}
+		},	
+		error : function() {
+			alert("삭제 오류발생");
+		}
+	});
+	}
+}
+function go_list(){
+	location="/RoomList.do";
+}
+/**
+ * 
+ */
 function create_table(){
 	var html = '';
 				
@@ -85,7 +134,7 @@ function save_room(){
 	
 	$.ajax({
 		type : "post",
-		url  : "InsertRoom.do",
+		url  : "/room/InsertRoom.do",
 		data : {
 			rm_rpp : JSON.stringify(rm_rpp_array),
 			rm_array : JSON.stringify(rm_array)
@@ -95,11 +144,11 @@ function save_room(){
 		success : function(data) {
 			if(data=="ok"){
 				alert("저장완료");
-				location="RoomList.do";
+				location="/RoomList.do";
 			}
 		},	
 		error : function() {
-			alert("오류발생");
+			alert("저장 오류발생");
 		}
 	});
 	
@@ -107,7 +156,21 @@ console.log(JSON.stringify(rm_rpp_array));
 
 }
 
-function go_list(){
-	location="../RoomList.do";
+function do_update(rm_name){
+	$.ajax({
+		type : "post",
+		url  : "/room/DeleteRoom.do",
+		data : 	"rm_name="+ rm_name,
+		datatype : "text",  // 성공여부 (ok)
+		success : function(data) {
+			if(data>0){
+				save_room();
+			}
+		},	
+		error : function() {
+			alert("삭제 오류발생");
+		}
+	});
+	//rm_name 에 대한 전체 삭제 후 다시 insert 시킨다.
 }
 

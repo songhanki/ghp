@@ -95,12 +95,7 @@ public class RoomController {
 				
 			}
 		}
-		
-
-   
-        
-		
-
+	
 		//return "admin/room/roomCreate";
 		return msg;
 	}
@@ -128,19 +123,37 @@ public class RoomController {
 	}
 	
 	@RequestMapping(value="UpdateRoom.do")
-	public String updateRoom( Model model ) throws Exception {
-		List<?> vo = roomService.selectRoomNameList();
-		System.out.println("vo : "+vo);
-		model.addAttribute("result",vo);
+	public String updateRoom(String rm_name, RoomVO vo, Model model ) throws Exception {
+		System.out.println("rm_name : "+rm_name);		
+		vo.setRm_name(rm_name); 
+		
+		List<?> rm_rpp = roomService.selectRoomRPPList(vo); // 숙소에 대한 호실,인원수,가격 정보조회
+		List<?> result = roomService.selectRoomDetailList(vo);
+		System.out.println("rm_rpp : "+rm_rpp);		
+		System.out.println("result : "+result); 
+		/* rm_rpp
+		 * [{rmRoom=101호, rmPerson=4, rmPrice=10000}, 
+		 * {rmRoom=102호, rmPerson=3, rmPrice=15000}, 
+		 * {rmRoom=103호, rmPerson=1, rmPrice=20000}]
+		 * result
+		 * {rmName=테스트01, rmImg=/src/img/room/roomtest_image_01.jpg, rmLoc=서울, rmPhone=021112222, rmComment=테스트용 숙소 101호입니다.}
+		*/
+		model.addAttribute("rm_rpp",rm_rpp);
+		model.addAttribute("result",result);
+
+		return "admin/room/roomUpdate";
 	
-		return "admin/roomList";
 	}
 	@RequestMapping(value="DeleteRoom.do")
-	public String deleteRoom( Model model ) throws Exception {
-		List<?> vo = roomService.selectRoomNameList();
-		System.out.println("vo : "+vo);
-		model.addAttribute("result",vo);
+	@ResponseBody
+	public String deleteRoom(String rm_name, RoomVO vo, Model model ) throws Exception {
+		String msg = "ok";
+		vo.setRm_name(rm_name);
+		int result = roomService.deleteRoomNameList(vo);
+
+		
+		System.out.println("del_result : "+result);
 	
-		return "admin/roomList";
+		return result+"";
 	}
 }
