@@ -7,77 +7,46 @@ import javax.annotation.Resource;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
 
+import ghp.service.NoticeListVO;
 import ghp.service.NoticeService;
-import ghp.service.NoticeVO;
 
 @Controller
-@RequestMapping(value="/notice/")
 public class NoticeController {
-	@Resource(name="noticeService")
+
+	@Resource(name = "noticeService")
 	private NoticeService noticeService;
 	
-	@RequestMapping(value="CreateNotice.do")
-	public String createNotice( Model model ) throws Exception {
-		//List<?> vo = roomService.selectRoomNameList();
-		//System.out.println("vo : "+vo);
-		//model.addAttribute("result",vo);
-	
-		return "admin/notice/noticeCreate";
-	}
-	
-	@RequestMapping(value="DetailNotice.do")
-	public String detailNotice(NoticeVO vo, Model model ) throws Exception {
-		vo = noticeService.selectNoticeDetailList(vo);
+	@RequestMapping(value = "noticeList.do")
+	public String NoticeList(NoticeListVO vo, Model model) throws Exception {
 		
-		System.out.println("vo : "+vo);
-		model.addAttribute("vo",vo);
-	
-		return "admin/notice/noticeDetail";
-	}
-	
-	@RequestMapping(value="InsertNotice.do")
-	@ResponseBody
-	public String insertNotice(NoticeVO vo ) throws Exception {
-		String msg = "ok";
-		vo.setNc_writer("관리자"); // 작성자는 관리자로 통일(추후 관리자 ID 연동 하면 해당 부분 추가
-		String result = noticeService.insertNoticeList(vo);
-
-		if( result != null ) msg = "save_fail"; 
-		System.out.println("notice_msg : "+msg);
-		return msg;
-	}
-	
-	@RequestMapping(value="UpdatePageNotice.do")
-	public String updatePageNotice(int nc_seq,NoticeVO vo, Model model ) throws Exception {
-		vo.setNc_seq(nc_seq);
-		vo = noticeService.selectNoticeDetailList(vo);
+		int page_no = vo.getPage_no();
+		int s_no = (page_no-1) * 10 +1 ;
+		int e_no = s_no + 9;
 		
-		System.out.println("vo : "+vo);
-		model.addAttribute("vo",vo);
-	
-		return "admin/notice/noticeUpdate";
+		vo.setS_no(s_no);
+		vo.setE_no(e_no);
+		
+		List<?> list = noticeService.selectNoticeList(vo);
+		int total = noticeService.selectNoticeTotal();
+		
+		int total_page = (int)Math.ceil((double)total/10);
+		int rownum = total - ((page_no-1) * 10);
+		
+		model.addAttribute("list", list);
+		model.addAttribute("rownum", rownum);
+		model.addAttribute("total_page", total_page);
+		
+		return "notice/noticeList";
 	}
 	
-	@RequestMapping(value="UpdateNotice.do")
-	@ResponseBody
-	public String updateNotice(NoticeVO vo, Model model ) throws Exception {
-		String msg = "ok";
-		int result = noticeService.updateNoticeList(vo);
+	@RequestMapping(value = "noticeDetail.do")
+	public String NoticeDetail(int ncseq, Model model) throws Exception {
+		System.out.println("noticeDetail_nc_seq : "+ncseq);
+		NoticeListVO vo = noticeService.selectNoticeDetail(ncseq);
 		
-		if( result == 0 ) msg = "save_fail"; 
-		return msg;
-	}
-	
-	@RequestMapping(value="DeleteNotice.do")
-	@ResponseBody
-	public String deleteNotice(int nc_seq, NoticeVO vo, Model model ) throws Exception {
-		//String msg = "ok";
-		vo.setNc_seq(nc_seq);
+		model.addAttribute("vo", vo);
 		
-		int result = noticeService.deleteNoticeList(vo);
-		System.out.println("notice result: "+result);
-		return result+"";
+		return "notice/noticeDetail";
 	}
 }

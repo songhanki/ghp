@@ -1,0 +1,484 @@
+/*======================================
+//--//-->  숙소검색 CSS
+======================================*/
+
+#sub .row{
+    margin-left: -10px;
+    margin-right: -10px;
+}
+.column {
+    width: 50%;
+    float: left;
+    padding: 10px;
+    font-family: 'Noto Sans KR', sans-serif;
+}
+.row:after {
+    content: "";
+    clear: both;
+    display: table;
+}
+.btn {
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 12px 16px;
+    background-color: #f1f1f1;
+}
+.btn:hover {
+    color: white;
+    background-color: rgba(241,89,42,1);
+}
+.btn.active {
+    color: white;
+    background-color: rgba(241,89,42,1);
+}
+
+#sub .page-item .active{
+    color: white!important;
+    background-color: rgba(241,89,42,1);
+}
+#sub .page-item .page-link{
+    color: #111;
+}
+#sub .page-item .page-link:hover{
+    color: rgba(241,89,42,1);
+}
+
+
+.tabcontent .left-content{
+    padding-left: 0;
+}
+.tabcontent .right-content{
+    font-family: 'Noto Sans KR', sans-serif;
+}
+.tabcontent .right-content dl dt{
+    font-size: 18px;
+    padding: 10px 0;
+    font-weight: 700;
+    overflow: hidden;
+    text-align: center;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+.tabcontent .right-content dl dd{
+    font-size: 16px;
+    font-weight: 400;
+    margin-bottom: 0;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+.tabcontent .right-content dl dd:last-child{
+    padding-top: 10px;
+}
+.tabcontent .right-content p{
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 0;
+    text-align: right;
+    color: rgba(241,89,42,1);
+}
+
+/* 숙소 상세 css */
+.lodging_detail{
+    padding: 20px 0 100px;
+}
+* {
+    box-sizing: border-box;
+}
+.lodging_detail img {
+    vertical-align: middle;
+}
+.lodging_detail .container {
+    position: relative;
+}
+.lodging_detail .mySlides {
+    display: none;
+}
+.lodging_detail .cursor {
+    cursor: pointer;
+}
+.prev,
+.next {
+    cursor: pointer;
+    position: absolute;
+    top: 40%;
+    width: auto;
+    padding: 16px;
+    margin-top: -50px;
+    color: white!important;
+    font-weight: bold;
+    font-size: 20px;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+    -webkit-user-select: none;
+}
+.next {
+    right: 15px;
+    border-radius: 3px 0 0 3px;
+}
+.prev:hover,
+.next:hover {
+    background-color: rgba(241,89,42,1);
+}
+.lodging_detail .numbertext {
+    color: #f2f2f2;
+    font-size: 12px;
+    padding: 8px 12px;
+    position: absolute;
+    top: 0;
+}
+.lodging_detail .caption-container {
+    text-align: center;
+    background-color: rgba(241,89,42,1);
+    padding: 2px 16px 5px;
+    color: white;
+}
+.lodging_detail .caption-container p{
+    margin-bottom: 0;
+}
+.lodging_detail .row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+.lodging_detail .column {
+    float: left;
+    width: 16.66%;
+    padding: 20px 10px;
+}
+.lodging_detail .demo {
+    opacity: 0.6;
+}
+.lodging_detail .active,
+.lodging_detail .demo:hover {
+    opacity: 1;
+}
+.name-number{
+    padding-top: 50px;
+    font-family: 'Noto Sans KR', sans-serif;
+}
+.name-number h3{
+    font-size: 22px;
+    font-weight: 700;
+}
+.name-number p{
+    font-size: 18px;
+    font-weight: 500;
+}
+.lodging_info .tab li{
+    width: 16.6%;
+    cursor: pointer;
+    font-size: 20px;
+    padding: 10px 0;
+    list-style: none;
+    font-weight: 400;
+    text-align: center;
+    border-radius: 5px;
+    border: 2px solid #fff;
+    background-color: #e4e4e4;
+    font-family: 'Noto Sans KR', sans-serif;
+}
+.lodging_info h4{
+    font-size: 18px;
+    font-weight: 700;
+    padding-top: 3rem;
+    padding-bottom: 2rem;
+    font-family: 'Noto Sans KR', sans-serif;
+}
+.lodging_info h4 span{
+    font-size: 16px;
+    font-weight: 400;
+    padding-left: 100px;
+}
+#sub .lodging-introduce{
+    padding: 10px;
+    margin-left: 0;
+    margin-right: 0;
+    margin-bottom: 20px;
+    border: 1px solid #ced4da
+}
+.lodging-content{
+    padding-top: 60px;
+}
+.lodging-content dl{
+    font-family: 'Noto Sans KR', sans-serif;
+}
+.lodging-content dl dt{
+    font-size: 18px;
+    font-weight: 700;
+    padding-bottom: 10px;
+}
+.lodging-content dl dd{
+    font-size: 16px;
+    font-weight: 500;
+    margin-bottom: 0;
+}
+.btn-reservation{
+    color: #fff!important;
+    border-color: rgba(241,89,42,1)!important;
+    background-color: rgba(241,89,42,1)!important;
+}
+.lodging_info .review{
+    padding-top: 10px;
+    border-bottom: 1px solid #111;
+    font-family: 'Noto Sans KR', sans-serif;
+}
+.lodging_info .review dl{
+    font-size: 14px;
+    font-weight: 500;
+}
+.lodging_info .review dl dt{
+    font-size: 16px;
+}
+.lodging_info .review dl dd{
+    margin-bottom: 0;
+}
+.lodging_info .review dl dd:last-child{
+    font-size: 18px;
+    font-weight: 700;
+    padding-top: 1rem;
+}
+.lodging_info .review p{
+    font-size: 30px;
+}
+.lodging_info .form-box{
+    padding-top: 10px;
+    padding-bottom: 30px;
+}
+.lodging_info .form-box .input-group{
+    margin-bottom: 10px;
+}
+#sub .lodging_info .margin{
+    margin-left: -15px;
+    margin-right: -15px;
+}
+.lodging_info .question-answer{
+    height: 160px;
+    padding: 20px;
+    overflow-y: auto;
+    border-radius: 10px;
+    border: 1px solid #ced4da;
+    font-family: 'Noto Sans KR', sans-serif;
+}
+/* 숙소 예약 css */
+.lodging-reservation{
+    padding-bottom: 100px;
+}
+.lodging-reservation ul{list-style: none; }
+.calendar{
+    padding-top: 30px;
+}
+.month {
+    padding: 70px 25px;
+    width: 100%;
+    background: rgba(241,89,42,1);
+    text-align: center;
+}
+
+.month ul {
+    margin: 0;
+    padding: 0;
+}
+
+.month ul li {
+    color: white;
+    font-size: 20px;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+}
+
+.month .prev {
+    float: left;
+    padding-top: 10px;
+}
+
+.month .next {
+    float: right;
+    padding-top: 10px;
+}
+
+.weekdays {
+    margin: 0;
+    padding: 10px 0;
+    background-color: #ddd;
+}
+
+.weekdays li {
+    display: inline-block;
+    width: 13.6%;
+    color: #666;
+    text-align: center;
+}
+
+.days {
+    padding: 10px 0;
+    background: #eee;
+    margin: 0;
+}
+
+.days li {
+    list-style-type: none;
+    display: inline-block;
+    width: 13.6%;
+    text-align: center;
+    margin-bottom: 5px;
+    font-size:12px;
+    color: #777;
+}
+
+.days li .active {
+    padding: 5px;
+    background: rgba(241,89,42,1);
+    color: white !important
+}
+
+@media screen and (max-width:720px) {
+    .weekdays li, .days li {width: 13.1%;}
+}
+
+@media screen and (max-width: 420px) {
+    .weekdays li, .days li {width: 12.5%;}
+    .days li .active {padding: 2px;}
+}
+
+@media screen and (max-width: 290px) {
+    .weekdays li, .days li {width: 12.2%;}
+}
+
+.reservation-choice h3{
+    font-size: 20px;
+    font-weight: 700;
+    padding: 20px 0 10px;
+    font-family: 'Noto Sans KR', sans-serif;
+}
+.reservation-result{
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid #ced4da;
+    font-family: 'Noto Sans KR', sans-serif;
+}
+.reservation-info{
+    padding: 20px 0;
+}
+.reservation-info h4{
+    font-size: 20px;
+    font-weight: 500;
+    font-family: 'Noto Sans KR', sans-serif;
+}
+.reservation-info .form-group{
+    margin-bottom: 0;
+}
+.reservation-check{
+    padding-bottom: 30px;
+}
+.reservation-check h4{
+    font-size: 20px;
+    font-weight: 500;
+    font-family: 'Noto Sans KR', sans-serif;
+}
+.reservation-check ul{
+    padding: 20px;
+    font-size: 16px;
+    font-weight: 500;
+    border-radius: 10px;
+    border: 1px solid #ced4da;
+    font-family: 'Noto Sans KR', sans-serif;
+}
+.btn-reservation{
+    color: #fff!important;
+    border-color: rgba(241,89,42,1) !important;
+    background-color: rgba(241,89,42,1) !important;
+}
+
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+.modal-content {
+    position: relative;
+    background-color: #fefefe;
+    margin: auto;
+    padding: 0;
+    border: 1px solid #888;
+    width: 80%;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+    -webkit-animation-name: animatetop;
+    -webkit-animation-duration: 0.4s;
+    animation-name: animatetop;
+    animation-duration: 0.4s
+}
+.modal-body h3{
+    font-size: 20px;
+    font-weight: 500;
+    font-family: 'Noto Sans KR', sans-serif;
+}
+.modal-body ul{
+    font-size: 16px;
+    font-weight: 400;
+    list-style: none;
+    font-family: 'Noto Sans KR', sans-serif;
+}
+.modal-body dl{
+    font-size: 16px;
+    font-weight: 400;
+    font-family: 'Noto Sans KR', sans-serif;
+}
+.modal-body p{
+    font-size: 16px;
+    font-weight: 400;
+    font-family: 'Noto Sans KR', sans-serif;
+}
+.modal-body p span{
+    color: red;
+}
+
+@-webkit-keyframes animatetop {
+    from {top:-300px; opacity:0}
+    to {top:0; opacity:1}
+}
+
+@keyframes animatetop {
+    from {top:-300px; opacity:0}
+    to {top:0; opacity:1}
+}
+
+.close {
+    color: white!important;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: #fff;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.modal-header {
+    padding: 2px 16px;
+    background-color: rgba(241,89,42,1) !important;
+    color: white;
+}
+
+.modal-body {padding: 2px 16px;}
+
+.modal-footer {
+    color: white;
+    padding: 2px 16px;
+    text-align: center;
+    border-top: none!important;
+    justify-content: center!important;
+}

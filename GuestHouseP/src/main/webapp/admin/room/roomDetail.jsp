@@ -9,8 +9,8 @@
 <head>
 <meta charset="UTF-8">
 <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
-<script type="text/javascript" src="../admin/js/roomCommon.js" ></script>
-<link href="../admin/bootstrap-4.6.1/css/bootstrap.min.css" rel="stylesheet">
+<script type="text/javascript" src="../../admin/js/roomCommon.js" ></script>
+<link href="../../admin/bootstrap-4.6.1/css/bootstrap.min.css" rel="stylesheet">
 <title>숙소상세보기</title>
 </head>
 <body>

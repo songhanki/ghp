@@ -5,13 +5,17 @@
 
 	<sqlMap resource="egovframework/sqlmap/example/sample/EgovSample_Sample_SQL.xml"/>
 	<sqlMap resource="egovframework/sqlmap/Ghp_SQL.xml"/>
-	<sqlMap resource="egovframework/sqlmap/Member_SQL.xml"/>
 	<sqlMap resource="egovframework/sqlmap/Room_SQL.xml"/>
 	<sqlMap resource="egovframework/sqlmap/Notice_SQL.xml"/>
 	<sqlMap resource="egovframework/sqlmap/FAQ_SQL.xml"/>
 	<sqlMap resource="egovframework/sqlmap/QnA_SQL.xml"/>
 	<sqlMap resource="egovframework/sqlmap/Event_SQL.xml"/>
 	<sqlMap resource="egovframework/sqlmap/Reserve_SQL.xml"/>
+	
+	
+	<sqlMap resource="egovframework/sqlmap/MainPage_SQL.xml"/>
+	<sqlMap resource="egovframework/sqlmap/Question_SQL.xml"/>
+	<sqlMap resource="egovframework/sqlmap/AdmMember_SQL.xml"/>
 	
 	
 </sqlMapConfig>

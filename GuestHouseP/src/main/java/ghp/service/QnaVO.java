@@ -1,19 +1,18 @@
 package ghp.service;
 
 public class QnaVO {
-	
-	private int qna_seq;
-	private String qna_title;
-	private String qna_comment;
-	private String qna_qcategory;
-	private int qna_upperseq;
-	private String qna_answer;
-	private String qna_qdate;
-	private String qna_adate;
-	private String qna_writer;
-	private String qna_phone;
-	private String qna_category;
-	
+
+	int qna_seq;
+	String qna_title;
+	String qna_comment;
+	String qna_category;
+	int qna_upperseq;
+	String qna_answer;
+	String qna_qdate;
+	String qna_sdate;
+	String qna_writer;
+	String qna_phone;
+	String qna_category2;
 	public int getQna_seq() {
 		return qna_seq;
 	}
@@ -32,11 +31,11 @@ public class QnaVO {
 	public void setQna_comment(String qna_comment) {
 		this.qna_comment = qna_comment;
 	}
-	public String getQna_qcategory() {
-		return qna_qcategory;
+	public String getQna_category() {
+		return qna_category;
 	}
-	public void setQna_qcategory(String qna_qcategory) {
-		this.qna_qcategory = qna_qcategory;
+	public void setQna_category(String qna_category) {
+		this.qna_category = qna_category;
 	}
 	public int getQna_upperseq() {
 		return qna_upperseq;
@@ -56,11 +55,11 @@ public class QnaVO {
 	public void setQna_qdate(String qna_qdate) {
 		this.qna_qdate = qna_qdate;
 	}
-	public String getQna_adate() {
-		return qna_adate;
+	public String getQna_sdate() {
+		return qna_sdate;
 	}
-	public void setQna_adate(String qna_adate) {
-		this.qna_adate = qna_adate;
+	public void setQna_sdate(String qna_sdate) {
+		this.qna_sdate = qna_sdate;
 	}
 	public String getQna_writer() {
 		return qna_writer;
@@ -74,14 +73,13 @@ public class QnaVO {
 	public void setQna_phone(String qna_phone) {
 		this.qna_phone = qna_phone;
 	}
-	public String getQna_category() {
-		return qna_category;
+	public String getQna_category2() {
+		return qna_category2;
 	}
-	public void setQna_category(String qna_category) {
-		this.qna_category = qna_category;
+	public void setQna_category2(String qna_category2) {
+		this.qna_category2 = qna_category2;
 	}
 	
-
 	
 	
 }

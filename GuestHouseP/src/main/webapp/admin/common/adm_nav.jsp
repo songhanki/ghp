@@ -8,25 +8,25 @@
 		  <div class="collapse navbar-collapse" id="navbarNav">
 		    <ul class="navbar-nav">
 		      <li class="nav-item active">
-		        <a class="nav-link" href="/UserSleepList.do">회원휴면관리 </a>
+		        <a class="nav-link" href="/adm/UserSleepList.do">회원휴면관리 </a>
 		      </li>
 		      <li class="nav-item active">
-		        <a class="nav-link" href="/RoomList.do">숙소관리</a>
+		        <a class="nav-link" href="/adm/RoomList.do">숙소관리</a>
 		      </li>
 		      <li class="nav-item active">
-		        <a class="nav-link" href="/ReserveList.do">예약관리</a>
+		        <a class="nav-link" href="/adm/ReserveList.do">예약관리</a>
 		      </li>
 		      <li class="nav-item active">
-		        <a class="nav-link" href="/NoticeList.do">공지사항관리</a>
+		        <a class="nav-link" href="/adm/NoticeList.do">공지사항관리</a>
 		      </li>
 		      <li class="nav-item active">
-		        <a class="nav-link" href="/FAQList.do">FAQ관리</a>
+		        <a class="nav-link" href="/adm/FAQList.do">FAQ관리</a>
 		      </li>
 		      <li class="nav-item active">
-		        <a class="nav-link" href="/QnAList.do">QnA답변</a>
+		        <a class="nav-link" href="/adm/QnAList.do">QnA답변</a>
 		      </li>
 		      <li class="nav-item active">
-		        <a class="nav-link" href="/EventList.do">이벤트관리</a>
+		        <a class="nav-link" href="/adm/EventList.do">이벤트관리</a>
 		      </li>
     		  <li class="nav-item">
 		        <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">통계</a>

@@ -2,9 +2,11 @@
 <!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd" >
 
 <sqlMap namespace="memberspace">
-	<typeAlias  alias="noticeVO"    type="ghp.service.NoticeVO"/>
+	<typeAlias  alias="admNoticeVO"    type="adm.service.NoticeAdmVO"/>
+	<typeAlias  alias="egovMap"  type="egovframework.rte.psl.dataaccess.util.EgovMap"/>
+	<typeAlias alias="noticevo" type="ghp.service.NoticeListVO"/>
 
-	<select id="noticeDAO.selectNoticeList" resultClass="noticeVO">
+	<select id="admNoticeDAO.selectNoticeList" resultClass="admNoticeVO">
 		select 
 			nc_seq,
 			nc_title,
@@ -18,7 +20,7 @@
 		
 	</select>
 
-	<select id="noticeDAO.selectNoticeDetailList" resultClass="noticeVO">
+	<select id="admNoticeDAO.selectNoticeDetailList" resultClass="admNoticeVO">
 		select 
 			nc_seq,
 			nc_title,
@@ -32,7 +34,7 @@
 		order by nc_seq asc
 	</select>
 
-	<insert id="noticeDAO.insertNoticeList">
+	<insert id="admNoticeDAO.insertNoticeList">
 		INSERT INTO notice_list(
 			nc_seq,
 			nc_title,
@@ -48,7 +50,7 @@
 		)
 	</insert>
 	
-	<update id="noticeDAO.updateNoticeList">
+	<update id="admNoticeDAO.updateNoticeList">
 		UPDATE  notice_list
 		SET
 			nc_title = #nc_title#,
@@ -57,10 +59,51 @@
 			nc_seq=#nc_seq#
 	</update>
 	
-	<delete id="noticeDAO.deleteNoticeList">
+	<delete id="admNoticeDAO.deleteNoticeList">
 		DELETE FROM 
 			notice_list
 		WHERE
 			nc_seq=#nc_seq#
 	</delete>
+	
+	
+	
+	
+		<select id="noticeDAO.selectNoticeList" resultClass="egovMap">
+		<![CDATA[
+			SELECT		a.* FROM (
+				SELECT		rownum rn,
+							nc_seq,
+							nc_title,
+							nc_wdate,
+							nc_view
+				FROM		notice_list ) a
+			WHERE	rn >= $s_no$ AND rn <= $e_no$
+			ORDER BY rn  DESC
+		]]>
+	</select>
+	
+	<select id="noticeDAO.selectNoticeTotal" resultClass="java.lang.Integer"   >
+		<![CDATA[	
+			SELECT count(*) FROM notice_list
+		]]>
+	</select>
+	
+	<select id="noticeDAO.selectNoticeDetail" resultClass="noticevo">
+		<![CDATA[
+			SELECT 
+						nc_seq,
+						nc_title,
+						nc_comment,
+						nc_wdate,
+						nc_view,
+						nc_writer
+			FROM
+						notice_list
+			WHERE
+						nc_seq=$ncseq$
+		]]>
+	</select>
+	
+	
 </sqlMap>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd" >
+<sqlMap namespace="mainpage_space">
+
+	<typeAlias  alias="egovMap"  type="egovframework.rte.psl.dataaccess.util.EgovMap"/>
+	<typeAlias alias="noticevo" type="ghp.service.NoticeListVO"/>
+		
+	<select id="mainpageDAO.selectInfoList" resultClass="egovMap">
+		SELECT		ti_title
+		FROM		travel_info_list
+		ORDER BY	ti_seq DESC
+	</select>
+	
+	<select id="mainpageDAO.selectReviewList" resultClass="egovMap">
+		SELECT		tr_title
+		FROM		travel_review_list
+		ORDER BY	tr_seq DESC
+	</select>
+	
+</sqlMap>

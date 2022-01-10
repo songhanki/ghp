@@ -2,7 +2,7 @@
 <!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd" >
 
 <sqlMap namespace="memberspace">
-	<typeAlias  alias="eventVO"    type="ghp.service.EventVO"/>
+	<typeAlias  alias="eventVO"    type="adm.service.EventVO"/>
 
 	<select id="eventDAO.selectEventList" resultClass="eventVO">
 		select 

@@ -1,0 +1,58 @@
+/*======================================
+//--//-->   공지사항 CSS
+======================================*/
+/* 공지사항 */
+.notice .table{ border-bottom: 1px solid #dee2e6; }
+.notice .table tr th{ text-align: center; }
+.notice .table tr th:nth-child(1){ width: 5%; }
+.notice .table tr th:nth-child(3){ width: 10%; }
+.notice .table tr th:nth-child(4){ width: 5%; }
+.notice .table tr td{ text-align: center; }
+.notice .table tr td:nth-child(2){
+    text-align: left;
+    overflow: hidden;
+    padding-left: 30px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+.notice .table tr td:nth-child(2) a{
+    color: #212529!important;
+    cursor: pointer!important;
+}
+/* 공지사항 상세 */
+.notice-detail{ margin-bottom: 70px; }
+.notice-detail .notice-head{ list-style: none; }
+.notice-detail .list-btn{
+    width: 80px;
+    height: 40px;
+    color: #212529;
+    line-height: 37px;
+    text-align: center;
+    border-radius: 5px;
+    display: inline-block;
+    border: 1px solid #212529;
+}
+.notice-detail .notice-title h6{
+    padding: 15px 0;
+    font-size: 18px;
+    margin-bottom: 0;
+    overflow: hidden;
+    text-align: center;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    border-top: 2px solid #212529;
+    border-bottom: 1px solid #212529;
+}
+.notice-detail .notice-text{
+    padding: 15px;
+    height: 200px;
+    font-size: 16px;
+    overflow-y: auto;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #212529;
+}
+.notice-detail .notice-text p{ margin-bottom: 0; }
+.notice-detail .list-btn:hover{
+    color: #fff;
+    background-color: #212529;
+}

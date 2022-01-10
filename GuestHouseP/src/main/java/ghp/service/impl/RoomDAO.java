@@ -4,43 +4,33 @@ import java.util.List;
 
 import org.springframework.stereotype.Repository;
 
+import ghp.service.ReserveListVO;
+import ghp.service.RoomListVO;
 import egovframework.rte.psl.dataaccess.EgovAbstractDAO;
-import ghp.service.RoomVO;
 
 @Repository("roomDAO")
-public class RoomDAO  extends EgovAbstractDAO{
-	
-	public List<?> selectRoomNameList() {
-		// TODO Auto-generated method stub
-		return list("roomDAO.selectRoomNameList");
-	}
+public class RoomDAO extends EgovAbstractDAO {
 
-	
-	public List<?> selectRoomList(RoomVO vo){
+	//SELECT
+	public List<?> selectRoomList(RoomListVO vo) {
 		return list("roomDAO.selectRoomList",vo);
 	}
-	
-	public List<?> selectRoomPriceList(RoomVO vo){
-		return list("roomDAO.selectRoomPriceList",vo);
+
+	public List<?> selectSearchRoomList(RoomListVO vo) {
+		return list("roomDAO.selectSearchRommList",vo);
+	}
+
+	public int selectRoomTotal(RoomListVO vo) {
+		return (int) select("roomlistDAO.selectRoomTotal",vo);
 	}
 	
-	public List<?> selectRoomEtcList(RoomVO vo){
-		return list("roomDAO.selectRoomEtcList",vo);
-	}	
-	
-	public List<?> selectRoomDetailList(RoomVO vo){
-		return list("roomDAO.selectRoomDetailList",vo);
+	public RoomListVO selectRoomDetail(RoomListVO vo) {
+		return (RoomListVO) select("roomDAO.selectRoomDetail",vo);
 	}
 	
-	public List<?> selectRoomRPPList(RoomVO vo){
-		return list("roomDAO.selectRoomRPPList",vo);
+	// INSERT
+	public String insertRoomReserve(ReserveListVO vo) {
+		return (String) insert("roomDAO.insertRoomReserve",vo);
 	}
-	
-	public String insertRoomList(RoomVO vo){
-		return (String) insert("roomDAO.insertRoomList",vo);
-	}
-	
-	public int deleteRoomNameList(RoomVO vo){
-		return delete("roomDAO.deleteRoomNameList",vo);
-	}
+
 }

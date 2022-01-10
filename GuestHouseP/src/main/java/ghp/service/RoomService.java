@@ -3,20 +3,15 @@ package ghp.service;
 import java.util.List;
 
 public interface RoomService {
-	List<?> selectRoomNameList() throws Exception;
-	
-	List<?> selectRoomList(RoomVO vo) throws Exception;
-	
-	List<?> selectRoomPriceList(RoomVO vo) throws Exception;
-	
-	List<?> selectRoomEtcList(RoomVO vo) throws Exception;
-	
-	List<?> selectRoomDetailList(RoomVO vo) throws Exception;
-	
-	List<?> selectRoomRPPList(RoomVO vo) throws Exception;
-	
-	String insertRoomList(RoomVO vo) throws Exception;
-	
-	int deleteRoomNameList(RoomVO vo) throws Exception;
-	
+
+	// 기본 SELECT
+	List<?> selectRoomList(RoomListVO vo) throws Exception;
+	// 검색 SELECT
+	List<?> selectSearchRoomList(RoomListVO vo) throws Exception;
+	// RoomTotal
+	int selectRoomTotal(RoomListVO vo) throws Exception;
+	// RoomDetail
+	RoomListVO selectRoomDetail(RoomListVO vo) throws Exception;
+	// RoomReserve
+	String insertRoomReserve(ReserveListVO vo) throws Exception;
 }

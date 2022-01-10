@@ -2,12 +2,12 @@
  * 
  */
 function go_create(){
-	location="/FAQ/CreateFAQ.do";
+	location="/adm/FAQ/CreateFAQ.do";
 	
 }
 
 function go_update(faq_seq){
-	location="/FAQ/UpdatePageFAQ.do?faq_seq="+faq_seq;
+	location="/adm/FAQ/UpdatePageFAQ.do?faq_seq="+faq_seq;
 }
 
 function do_delete(faq_seq){
@@ -15,7 +15,7 @@ function do_delete(faq_seq){
 	if( confirm("정말 삭제 하시겠습니까?") ) {
 		$.ajax({
 		type : "post",
-		url  : "/FAQ/DeleteFAQ.do",
+		url  : "/adm/FAQ/DeleteFAQ.do",
 		data : 	"faq_seq="+ faq_seq,
 		datatype : "text",  // 성공여부 (ok)
 		success : function(data) {
@@ -33,7 +33,7 @@ function do_delete(faq_seq){
 }
 
 function go_list(){
-	location="/FAQList.do";
+	location="/adm/FAQList.do";
 }
 
 function save_faq(){
@@ -41,13 +41,13 @@ function save_faq(){
 	var formdata = $("#frm").serialize();
 	$.ajax({
 		type : "post",
-		url  : "/FAQ/InsertFAQ.do",
+		url  : "/adm/FAQ/InsertFAQ.do",
 		data : formdata,
 		datatype : "text",  // 성공여부 (ok)
 		success : function(data) {
 			if (data == "ok") {
 				alert("저장완료");
-				location="/FAQList.do";
+				location="/adm/FAQList.do";
 			} else {
 				alert("저장실패");
 			}
@@ -64,13 +64,13 @@ function do_update(){
 	var formdata = $("#frm").serialize();
 	$.ajax({
 		type : "post",
-		url  : "/FAQ/UpdateFAQ.do",
+		url  : "/adm/FAQ/UpdateFAQ.do",
 		data : formdata,
 		datatype : "text",  // 성공여부 (ok)
 		success : function(data) {
 			if (data == "ok") {
 				alert("저장완료");
-				location="/FAQList.do";
+				location="/adm/FAQList.do";
 			} else {
 				alert("저장실패");
 			}

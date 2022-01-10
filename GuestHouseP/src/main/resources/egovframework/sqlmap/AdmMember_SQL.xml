@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd" >
+
+<sqlMap namespace="memberspace">
+
+	<typeAlias  alias="egovMap"  type="egovframework.rte.psl.dataaccess.util.EgovMap"/>
+	<typeAlias  alias="admMemberVO"    type="adm.service.MemberAdmVO"/>
+
+	
+	
+	<!-- adm s -->
+
+	<select id="memberAdmDAO.selectSleepMemberList" resultClass="admMemberVO">
+		select 
+			mb_seq,
+			mb_email,
+			mb_password,
+			mb_name,  
+			mb_birth, 
+			mb_phone, 
+			mb_address,
+			mb_sleep, 
+			mb_last,
+			mb_pfimg
+		from 
+			member_list
+		where
+			mb_sleep = 'Y'
+	</select>
+	
+	<!-- adm e -->
+	
+	
+	
+</sqlMap>

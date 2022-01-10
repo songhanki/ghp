@@ -10,7 +10,7 @@
 <head>
 <meta charset="UTF-8">
 <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
-<link href="admin/bootstrap-4.6.1/css/bootstrap.min.css" rel="stylesheet">
+<link href="../admin/bootstrap-4.6.1/css/bootstrap.min.css" rel="stylesheet">
 <script>
 </script>
 <title>휴면계정 관리</title>

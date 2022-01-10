@@ -4,7 +4,7 @@
 <sqlMap namespace="empspace">
 
 	<typeAlias  alias="egovMap"  type="egovframework.rte.psl.dataaccess.util.EgovMap"/>
-	<typeAlias  alias="ghpvo"    type="ghp.service.GhpVO"/>
+	<typeAlias  alias="ghpvo"    type="adm.service.GhpVO"/>
 
 	<select id="ghpDAO.selectEmpList">
 		<![CDATA[

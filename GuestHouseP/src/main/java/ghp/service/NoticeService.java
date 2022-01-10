@@ -3,9 +3,11 @@ package ghp.service;
 import java.util.List;
 
 public interface NoticeService {
-	List<?> selectNoticeList() throws Exception;
-	NoticeVO selectNoticeDetailList(NoticeVO vo) throws Exception;
-	String insertNoticeList(NoticeVO vo) throws Exception;
-	int updateNoticeList(NoticeVO vo) throws Exception;
-	int deleteNoticeList(NoticeVO vo) throws Exception;
+
+	List<?> selectNoticeList(NoticeListVO vo) throws Exception;
+
+	int selectNoticeTotal() throws Exception;
+
+	NoticeListVO selectNoticeDetail(int ncseq) throws Exception;
+
 }

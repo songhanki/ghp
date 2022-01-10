@@ -3,9 +3,11 @@
 
 <sqlMap namespace="room_space">
 	<typeAlias  alias="egovMap"  type="egovframework.rte.psl.dataaccess.util.EgovMap"/>
-	<typeAlias  alias="roomVO"    type="ghp.service.RoomVO"/>
+	<typeAlias  alias="admRoomVO"    type="adm.service.RoomAdmVO"/>
+	<typeAlias  alias="roomVO"  type="ghp.service.RoomListVO"/>
 
-	<select id="roomDAO.selectRoomNameList" resultClass="egovMap">
+<!-- adm s -->
+	<select id="admRoomDAO.selectRoomNameList" resultClass="egovMap">
 		select 
 			rm_name
 		from
@@ -14,7 +16,7 @@
 	</select>
 
 
-	<select id="roomDAO.selectRoomList" resultClass="egovMap" >
+	<select id="admRoomDAO.selectRoomList" resultClass="egovMap" >
 		select 
 			rm_room 
 		from 
@@ -25,7 +27,7 @@
 		order by rm_room asc
  
 	</select>
-	<select id="roomDAO.selectRoomPriceList" resultClass="egovMap">
+	<select id="admRoomDAO.selectRoomPriceList" resultClass="egovMap">
 		select 
 			min(rm_price) as min_price,
 			 max(rm_price) as max_price
@@ -35,7 +37,7 @@
 			rm_name=#rm_name#
 	</select>
 	
-	<select id="roomDAO.selectRoomEtcList" resultClass="egovMap">
+	<select id="admRoomDAO.selectRoomEtcList" resultClass="egovMap">
 		select 
 			rm_img, rm_loc, rm_phone
 		from 
@@ -46,7 +48,7 @@
 	</select>
 	
 	
-	<select id="roomDAO.selectRoomDetailList" resultClass="egovMap">
+	<select id="admRoomDAO.selectRoomDetailList" resultClass="egovMap">
 		select 
 			rm_name, rm_img, rm_loc, rm_phone,rm_comment
 		from 
@@ -56,7 +58,7 @@
 		and rownum=1
 	</select>
 		
-	<select id="roomDAO.selectRoomRPPList" resultClass="egovMap">
+	<select id="admRoomDAO.selectRoomRPPList" resultClass="egovMap">
 		select 
 			rm_room, rm_person, rm_price
 		from 
@@ -68,7 +70,7 @@
 	</select>
 
 
-	<insert id="roomDAO.insertRoomList">
+	<insert id="admRoomDAO.insertRoomList">
 		INSERT INTO room_list(
 			rm_seq,
 			rm_name,
@@ -98,9 +100,100 @@
 		$ -> 로그 콘솔출력할때 내부 데이터 그대로 출력	'$변수명$'
 	 -->
 	
-	<delete id="roomDAO.deleteRoomNameList">
+	<delete id="admRoomDAO.deleteRoomNameList">
 		DELETE FROM room_list WHERE rm_name=#rm_name#
 	</delete>
+	<!-- adm e -->
+	
+	
+	<select id="roomDAO.selectRoomList" resultClass="egovMap">
+		<![CDATA[
+			SELECT b.* FROM (
+				SELECT rownum rn, a.* FROM (
+					SELECT
+							rm_seq,
+							rm_name,
+							rm_img,
+							rm_loc,
+							rm_room,
+							rm_person,
+							rm_price,
+							rm_comment
+					FROM 	room_list
+					ORDER BY rm_seq DESC
+			)a 
+		)b
+		]]>
+	</select>
+	
+	<select id="roomDAO.selectSearchRommList" resultClass="egovMap">
+		SELECT b.* FROM (
+			SELECT rownum rn, a.* FROM (
+				SELECT	rm_seq,
+						rm_name,
+						rm_img,
+						rm_loc,
+						rm_room,
+						rm_person,
+						rm_price,
+						rm_comment
+				FROM	room_list
+				<isNotNull property="keyword">
+					WHERE rm_loc = '$sloc$' OR rm_person = '$sperson$' AND rm_name LIKE '%$keyword$%'
+				</isNotNull>
+				<isNull property="keyword">
+					WHERE rm_loc = '$sloc$' OR rm_person = '$sperson$'
+				</isNull>
+				ORDER BY rm_seq DESC
+			)a 
+		)b
+	</select>
+	
+	<select id="roomlistDAO.selectRoomTotal" resultClass="java.lang.Integer">
+		<![CDATA[
+			SELECT	COUNT(*) FROM room_list
+		]]>
+	</select>
+	
+	<select id="roomDAO.selectRoomDetail" resultClass="roomvo">
+		<![CDATA[
+			SELECT	rm_seq,
+					rm_name,
+					rm_img,
+					rm_loc,
+					rm_room,
+					rm_person,
+					rm_price,
+					rm_comment
+			FROM	room_list
+			WHERE	rm_seq = #rm_seq#
+					
+		]]>
+	</select>
+	
+	<insert id="roomDAO.insertRoomReserve">
+		<![CDATA[
+			INSERT INTO reservelist (
+										rsv_seq,
+										rsv_sdate,
+										rsv_edate,
+										rsv_person,
+										rsv_name,
+										rsv_phone,
+										rsv_payyn,
+										rsv_wdate
+									)
+						VALUES		(	reserve_seq.nextval,
+										'$rsv_sdate$',
+										'$rsv_edate$',
+										'$rsv_person$',
+										'$rsv_name$',
+										'$rsv_phone$',
+										'$rsv_payyn$',
+										sysdate
+									)
+		]]>
+	</insert>
 	
 	
 </sqlMap>

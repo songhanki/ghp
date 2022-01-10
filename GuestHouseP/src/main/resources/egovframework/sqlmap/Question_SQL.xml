@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd" >
+
+<sqlMap namespace="questionspace">
+
+	<typeAlias  alias="egovMap"  type="egovframework.rte.psl.dataaccess.util.EgovMap"/>
+	<typeAlias  alias="questionvo" type="ghp.service.QnaVO"/>
+	<typeAlias  alias="faqlistvo" type="ghp.service.FaqListVO"/>
+	
+	<!-- SELECT -->
+	<select id="questionDAO.selectQuestionList" resultClass="egovMap">
+		<![CDATA[
+				SELECT 	faq_title,
+						faq_comment
+				FROM	faq_list
+				WHERE 	faq_category = '$faq_category$'
+		]]>
+	</select>
+	
+	<select id="questionDAO.selectQuestionList1" resultClass="egovMap">
+		<![CDATA[
+				SELECT 	faq_title,
+						faq_comment
+				FROM	faq_list
+				WHERE	faq_category = 'A'
+		]]>
+	</select>
+	
+	<select id="questionDAO.selectQuestionList2" resultClass="egovMap">
+		<![CDATA[
+				SELECT 	faq_title,
+						faq_comment
+				FROM	faq_list
+				WHERE	faq_category = 'B'
+		]]>
+	</select>
+	
+	<select id="questionDAO.selectQuestionList3" resultClass="egovMap">
+		<![CDATA[
+				SELECT 	faq_title,
+						faq_comment
+				FROM	faq_list
+				WHERE	faq_category = 'C'
+		]]>
+	</select>
+	
+	<!-- INSERET -->
+	<insert id="questionDAO.insertQuestion">
+		<![CDATA[
+				INSERT INTO qna_list (
+										qna_seq,
+										qna_category,
+										qna_writer,
+										qna_phone,
+										qna_answer,
+										qna_title,
+										qna_comment,
+										qna_sdate,
+										qna_qdate
+									)
+						VALUES		(
+										question_seq.nextval,
+										'$qna_category$',
+										'$qna_writer$',
+										'$qna_phone$',
+										'$qna_answer$',
+										'$qna_title$',
+										'$qna_comment$',
+										'$qna_sdate$',
+										'$qna_qdate$'
+									)
+		]]>
+	</insert>
+</sqlMap>

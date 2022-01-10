@@ -4,7 +4,7 @@
 <sqlMap namespace="memberspace">
 
 	<typeAlias  alias="egovMap"  type="egovframework.rte.psl.dataaccess.util.EgovMap"/>
-	<typeAlias  alias="reserveVO"    type="ghp.service.ReserveVO"/>
+	<typeAlias  alias="reserveVO"    type="adm.service.ReserveVO"/>
 
 	<select id="reserveDAO.selectReserveList" resultClass="egovMap">
 select 
