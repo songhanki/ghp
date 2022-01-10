@@ -3,13 +3,25 @@
 
 <sqlMap namespace="memberspace">
 
+	<typeAlias  alias="egovMap"  type="egovframework.rte.psl.dataaccess.util.EgovMap"/>
 	<typeAlias  alias="reserveVO"    type="ghp.service.ReserveVO"/>
 
-	<select id="reserveDAO.selectReserveList" resultClass="noticeVO">
-		select
-			*
-		from
-		reserve_list
+	<select id="reserveDAO.selectReserveList" resultClass="egovMap">
+select 
+    b.rsv_seq AS rsv_seq,
+    TO_CHAR(b.rsv_sdate, 'YYYY/MM/DD') AS rsv_sdate,
+   	TO_CHAR(b.rsv_edate, 'YYYY/MM/DD') AS rsv_edate,
+    b.rsv_room AS rsv_room,
+    b.rsv_person AS rsv_person,
+    b.rsv_name AS rsv_name,
+    b.rsv_phone AS rsv_phone,
+    b.rsv_pay_yn AS rsv_pay_yn,
+    b.rsv_price AS rsv_price,
+    b.rsv_payment AS rsv_payment,
+    b.rsv_wdate AS rsv_wdate,
+    (select a.rm_name from room_list A where A.rm_seq=B.rm_seq) as rm_name,
+    (select a.rm_loc from room_list A where A.rm_seq=B.rm_seq) as rm_loc
+from reserve_list B
 	</select>
 	
 </sqlMap>

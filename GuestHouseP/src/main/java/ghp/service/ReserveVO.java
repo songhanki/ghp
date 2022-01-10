@@ -15,6 +15,9 @@ public class ReserveVO {
 	private String mb_email;
 	private int rm_seq;
 	
+	private String rm_name;
+	private String rm_loc;
+	
 	
 	public int getRsv_seq() {
 		return rsv_seq;
@@ -93,6 +96,18 @@ public class ReserveVO {
 	}
 	public void setRm_seq(int rm_seq) {
 		this.rm_seq = rm_seq;
+	}
+	public String getRm_name() {
+		return rm_name;
+	}
+	public void setRm_name(String rm_name) {
+		this.rm_name = rm_name;
+	}
+	public String getRm_loc() {
+		return rm_loc;
+	}
+	public void setRm_loc(String rm_loc) {
+		this.rm_loc = rm_loc;
 	}
 	
 	

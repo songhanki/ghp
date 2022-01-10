@@ -64,9 +64,9 @@ public class AdminController {
 	@RequestMapping(value="/ReserveList.do")
 	public String selectReserveList( Model model ) throws Exception {
 		List<?> vo = reserveService.selectReserveList();
-		System.out.println("vo : "+vo);
+		//System.out.println("vo : "+vo);
 		model.addAttribute("result",vo);
-		
+		System.out.println("vo : "+ vo.get(0));
 		return "admin/reserveList";
 	}
 	

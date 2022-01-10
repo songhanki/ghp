@@ -18,7 +18,6 @@
 </head>
 <div class="container">
 	<%@ include file="./common/adm_nav.jsp" %>
-<select></select>
 	  	<div style="margin-bottom:10px;float:left; text-align:left; width:500px;">
 	  	
 	  		<form name="frm" method="post" action=".do">
@@ -45,7 +44,7 @@
 		<table class="table table-hover">
 			<thead>
 				<tr>
-					<th scope="col">선택</th>
+					<th scope="col"></th>
 					<th scope="col">숙소명</th>
 					<th scope="col">예약호실</th>
 					<th scope="col">숙소위치</th>
@@ -55,34 +54,17 @@
 				</tr>
 			</thead>
 			<tbody>
-				<tr>
-					<td>1</td>
-					<td>hksong9276@gmail.com</td>
-					<td>2021-07-06</td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
+			<c:forEach var="result" items="${result}" varStatus="status">
+				<tr onClick="location.href='reserve/DetailReserve.do?rsv_seq=${result.rsvSeq}'"> 
+					<th scope="row">${status.index+1 }</th>
+					<td>${result.rmName} </td>
+					<td>${result.rsvRoom}</td>
+					<td>${result.rmLoc}</td>
+					<td>${result.rsvName}</td>
+					<td>${result.rsvSdate} ~ ${result.rsvEdate}</td>
+					<td>${result.rsvName}</td>
 				</tr>
-				<tr>
-					<td>2</td>
-					<td>hksong9276@gmail.com</td>
-					<td>2021-07-06</td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-				</tr>
-				<tr>
-					<td>3</td>
-					<td>hksong9276@gmail.com</td>
-					<td>2021-07-06</td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-				</tr>
-				
+			</c:forEach>
 			</tbody>
 		</table>
 	  	<div style="width:700px;margin-left:10px; margin-top:10px; text-align:center;">
